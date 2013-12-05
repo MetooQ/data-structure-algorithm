@@ -1,0 +1,1 @@
+java Euclidean <input.txt >out.txt
