@@ -29,3 +29,27 @@ poj 下为poj练习
 
 2013-12-5
 1.添加bookexercise\gcm:求两个数的最大公约数1.辗转相除法2.更相减损法
+
+2013-12-7
+1.修正maxsubsum中divideandconquer bug
+2.添加bookexercise\minsubsum: 求最小子序列和。p40
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
