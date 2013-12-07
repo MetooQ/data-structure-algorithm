@@ -34,6 +34,8 @@ poj 下为poj练习
 1.修正maxsubsum中divideandconquer bug
 2.添加bookexercise\minsubsum: 求最小子序列和。p40
 
+2013-12-7
+1.添加bookexercise\minsubsum: dp求解
 
 
 
