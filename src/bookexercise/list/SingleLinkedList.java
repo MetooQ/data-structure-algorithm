@@ -1,8 +1,12 @@
 package bookexercise.list;
 
-public class SingleLinkedList<AnyType> {
+import java.util.Iterator;
+
+public class SingleLinkedList<AnyType> implements Iterable<AnyType>{
 	private Node<AnyType> startMarker;
 	private int size;
+	
+	
 	
 	public SingleLinkedList() {
 		clear();
@@ -77,7 +81,7 @@ public class SingleLinkedList<AnyType> {
 		return sb.toString();
 	}
 	
-	static class Node<AnyType> {
+	private static class Node<AnyType> {
 		public AnyType data;
 		public Node<AnyType> next;
 		
@@ -116,5 +120,29 @@ public class SingleLinkedList<AnyType> {
 		System.out.println(list.contains(3));
 		System.out.println(list.contains(22));
 	}
+
+	@Override
+	public Iterator<AnyType> iterator() {
+		return new ListIterator();
+	}
+	
+	private class  ListIterator implements Iterator<AnyType> {
+		private Node<AnyType> current = startMarker.next;
+
+		@Override
+		public boolean hasNext() {
+			return current != null;
+		}
+
+		@Override
+		public AnyType next() {
+			AnyType data = current.data;
+			current = current.next;
+			return data;
+		}
+
+		@Override
+		public void remove() {
+		}}
 
 } // end class SingleLinkedList
