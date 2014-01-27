@@ -18,7 +18,7 @@ public class EX4_10 {
     Path path = Paths.get(p);
     try (DirectoryStream<Path> stream = Files.newDirectoryStream(path)) {
       for (Path file: stream) {
-        System.out.println(file.getFileName());
+        System.out.println("name:" + file.getFileName() + " size: " + Files.size(file) + " byte");
       } // end for
     } catch (Exception e) {
       e.printStackTrace();
