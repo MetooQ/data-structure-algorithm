@@ -31,7 +31,13 @@ public class HeapSort {
       if (child + 1 < size && a[child].compareTo(a[child + 1]) < 0) {
         ++child;
       } // end if
-      a[i] = a[child];
+      if (temp.compareTo(a[child]) < 0) {
+        a[i] = a[child];
+      } // end if
+      else {
+        break;
+      } // end else
+      
     } // end for
     a[i] = temp;
   } // end permDown()
