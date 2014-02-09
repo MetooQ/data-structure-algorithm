@@ -10,7 +10,7 @@ public class ShellSort {
       data[i] = i;
     } // end for
     
-    sort(data);
+    asort(data);
     
     for (i = 0; i <= 9; ++i) {
       System.out.printf("%d ", data[i]);
@@ -39,5 +39,47 @@ public class ShellSort {
     } // end for
     
   } // end sort()
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  public static <T extends Comparable<? super T>>
+  void asort(T[] data) {
+    int gap;
+    int len = data.length;
+    int i;
+    int j;
+    T temp;
+    
+    for (gap = len / 2; gap >= 1; gap /= 2) {
+      for (i = gap; i < len; ++i) {
+        temp = data[i];
+        for (j = i; j > gap && temp.compareTo(data[j - gap]) < 0; j -= gap) {
+          data[j] = data[j - gap];
+        } // end for
+        data[j] = temp;
+      } // end i for
+    } // end gap for
+  } // end asort()
+  
+  
+  
   
 } // end class ShellSort

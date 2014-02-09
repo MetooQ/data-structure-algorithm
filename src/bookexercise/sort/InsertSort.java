@@ -44,24 +44,19 @@ public class InsertSort {
   
   
   
-  
-  
-  
-  
-  
-  
-  public static <T extends Comparable<? super T>> void asort(T[] data) {
+  public static <T extends Comparable<? super T>> 
+  void asort(T[] data) {
     int i;
     int j;
     int len;
     T temp;
     
-    for (i = 1, len = data.length; i < len; ++i ){
+    for (i = 1, len = data.length; i < len; ++i) {
       temp = data[i];
       for (j = i; j > 0 && temp.compareTo(data[j - 1]) < 0; --j) {
         data[j] = data[j - 1];
       } // end for
-      data[j] = temp;
+      data[i] = temp;
     } // end for
     
   } // end asort()
