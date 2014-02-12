@@ -59,25 +59,22 @@ public class ShellSort {
   
   
   
-  
   public static <T extends Comparable<? super T>>
   void asort(T[] data) {
-    int gap;
-    int len = data.length;
-    int i;
-    int j;
+    int step, i, j, len;
     T temp;
     
-    for (gap = len / 2; gap >= 1; gap /= 2) {
-      for (i = gap; i < len; ++i) {
+    for (len = data.length, step = len / 2; step >= 1; step /= 2) {
+      for (i = step; i < len; ++i) {
         temp = data[i];
-        for (j = i; j > gap && temp.compareTo(data[j - gap]) < 0; j -= gap) {
-          data[j] = data[j - gap];
+        for (j = i; j > step && temp.compareTo(data[j]) < 0; j -= step) {
+          data[j] = data[j - step];
         } // end for
         data[j] = temp;
-      } // end i for
-    } // end gap for
-  } // end asort()
+      } // end for 
+    } // end for
+  } // end asrot()
+  
   
   
   

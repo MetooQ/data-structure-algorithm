@@ -5,25 +5,23 @@ public class InsertSort {
   public static void main(String[] args) {
     Integer[] data = new Integer[10];
     int i;
-    
+
     for (i = 9; i >= 0; --i) {
       data[i] = i;
     } // end for
-    
+
     asort(data);
-    
+
     for (i = 0; i <= 9; ++i) {
       System.out.printf("%d ", data[i]);
     } // end for
-    
+
   } // main()
-  
-  public static <T extends Comparable<? super T>>
-  void sort(T[] data)
-  {
+
+  public static <T extends Comparable<? super T>> void sort(T[] data) {
     T temp = null;
     int i, j, len;
-    
+
     for (i = 1, len = data.length; i < len; ++i) {
       temp = data[i];
       for (j = i; j > 0 && temp.compareTo(data[j - 1]) < 0; --j) {
@@ -44,11 +42,19 @@ public class InsertSort {
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
   public static <T extends Comparable<? super T>> 
   void asort(T[] data) {
-    int i;
-    int j;
-    int len;
+    int i, j, len;
     T temp;
     
     for (i = 1, len = data.length; i < len; ++i) {
@@ -58,12 +64,8 @@ public class InsertSort {
       } // end for
       data[i] = temp;
     } // end for
-    
+
   } // end asort()
-  
-  
-  
-  
 
 } // end class Insertsort
 
