@@ -55,8 +55,6 @@ public class BiTreePostorderTraversalIterate2 {
         } // end if
         return result;
       } // end postorderTraversal()
-
-
     } // end class Solution
 
 }
