@@ -1,6 +1,6 @@
 package leetcode;
 
-public class LinkedListCircle {
+public class LinkedListCircle2 {
 
   static class ListNode {
     int val;
@@ -13,31 +13,25 @@ public class LinkedListCircle {
   }
 
   static class Solution {
-    public ListNode detectCycle(ListNode head) {
-      if (head == null) {
-        return null;
-      }
-
+    public boolean hasCycle(ListNode head) {
+      if (head == null) { return false; }
+      
       ListNode fast = head;
       ListNode slow = head;
-
+      
       while (true) {
         if (fast.next == null || fast.next.next == null) {
-          return null;
+          return false;
         } // end if
+        
         fast = fast.next.next;
         slow = slow.next;
-
+        
         if (fast == slow) {
-          fast = head;
-          while (fast != slow) {
-            fast = fast.next;
-            slow = slow.next;
-          } // end while
-          return fast;
+          return true;
         } // end if
       } // end while
     }
-  }// end class Solution
+  } // end class Solution
 
 }
