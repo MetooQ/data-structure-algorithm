@@ -20,37 +20,31 @@ public class CloneGraph {
 
   static class Solution {
     public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+      Map<Integer, UndirectedGraphNode> map = new HashMap<Integer, UndirectedGraphNode>();
       if (node == null) {
         return null;
+      }
+      return clone(node, map);
+    } // end cloneGraph()
+    
+    public UndirectedGraphNode clone(UndirectedGraphNode node, 
+        Map<Integer, UndirectedGraphNode> map) {
+      if (map.containsKey(node.label)) {
+        return map.get(node.label);
       } // end if
       
-      Map<Integer, UndirectedGraphNode> map = new HashMap<Integer, UndirectedGraphNode>();
-      Queue<UndirectedGraphNode> queue = new LinkedList<UndirectedGraphNode>();
-      UndirectedGraphNode root, temp, item;
-
-      root = new UndirectedGraphNode(node.label);
-      map.put(node.label, node);
-      queue.add(node);
+      UndirectedGraphNode newNode = new UndirectedGraphNode(node.label), temp;
+      map.put(node.label, newNode);
       
-      while (!queue.isEmpty()) {
-        node = queue.poll();
-        
-        temp = map.get(node.label);
-        
-        for (UndirectedGraphNode neib: node.neighbors) {
-          item = map.get(neib.label);
-          if (item == null) {
-            item = new UndirectedGraphNode(neib.label);
-            map.put(neib.label, item);
-            queue.add(neib);
-          }
-          temp.neighbors.add(item);
-        } // end for
-        
-        
-      } // end while
+      for (UndirectedGraphNode neib: node.neighbors) {
+        temp = clone(neib, map);
+        newNode.neighbors.add(temp);
+      } // end for
       
-      return root;
-    } // end cloneGraph()
+      
+      
+      return newNode;
+      
+    } // end clone()
   } // end class Solution
 }
