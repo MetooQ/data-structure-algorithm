@@ -26,7 +26,6 @@ public class ReverseWordInString {
       Scanner input = new Scanner(s);
       Deque<String> stack = new LinkedList<String>();
       StringBuilder sb = new StringBuilder();
-      String item;
 
       while (input.hasNext()) {
         stack.push(input.next());

@@ -10,7 +10,7 @@ public class HeapSort {
       data[i] = i;
     } // end for
     
-    asort(data);
+    sort(data);
     
     for (i = 0; i <= 9; ++i) {
       System.out.printf("%d ", data[i]);
@@ -64,49 +64,6 @@ public class HeapSort {
   
   
   
-  
-  
-  
-  
-  public static int aLeftChild(int i) {
-    return 2 * i + 1;
-  }
-  public static <T extends Comparable<? super T>>
-  void aPermDown(T[] data, int i, int size) {
-    int child;
-    T temp = data[i];
-    
-    for (; (child = aLeftChild(i)) < size; i = child) {
-      if (child + 1 < size && data[child + 1].compareTo(temp) > 0) {
-        ++child;
-      } // end if
-      if (data[child].compareTo(temp) > 0) {
-        data[i] = data[child];
-      } // end if
-      else {
-        break;
-      } // end else
-    } // end for
-    data[i] = temp;
-  } // end permDown()
-  
-  public static <T extends Comparable<? super T>>
-  void asort(T[] data) {
-    int i, len;
-    T temp;
-    
-    len = data.length;
-    for (i = len / 2; i >= 0; --i) {
-      aPermDown(data, i, len);
-    } // end for
-    for (i = len - 1; i > 0; --i) {
-      temp = data[i];
-      data[i] = data[0];
-      data[0] = temp;
-      aPermDown(data, 0, i);
-    } // end for
-    
-  } // end asort()
   
   
   
