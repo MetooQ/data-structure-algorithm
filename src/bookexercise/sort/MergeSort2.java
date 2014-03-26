@@ -22,15 +22,14 @@ public class MergeSort2 {
   public static <T extends Comparable<? super T>>
   void sort(T[] data) {
     if (data == null || data.length == 0) {
-      return;
+      return ;
     } // end if
+    
     T[] temp = (T[]) new Comparable[data.length];
-    if (temp != null) {
-      mergesort(data, temp, 0, data.length - 1);
-    } // end if
+    mergesort(data, temp, 0, data.length - 1);
   } // end sort()
   
-  private static <T extends Comparable<? super T>>
+  public static <T extends Comparable<? super T>>
   void mergesort(T[] data, T[] temp, int left, int right) {
     if (left < right) {
       int mid = (left + right) / 2;
@@ -40,7 +39,7 @@ public class MergeSort2 {
     } // end if
   } // end mergesort()
   
-  private static <T extends Comparable<? super T>>
+  public static <T extends Comparable<? super T>>
   void merge(T[] data, T[] temp, int leftBegin, int rightBegin, int rightEnd) {
     int leftEnd = rightBegin - 1;
     int left = leftBegin;
@@ -63,11 +62,9 @@ public class MergeSort2 {
       temp[i++] = data[right++];
     } // end while
     
-    while (leftBegin <= rightEnd) {
-      data[leftBegin] = temp[leftBegin];
-      ++leftBegin;
-    } // end while
-    
+    for (i = leftBegin; i <= rightEnd; ++i) {
+      data[i] = temp[i];
+    } // end for
     
   } // end merge()
   
