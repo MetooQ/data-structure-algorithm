@@ -19,14 +19,13 @@ public class MergeSort2 {
     
   } // main()
 
+  
   public static <T extends Comparable<? super T>>
   void sort(T[] data) {
-    if (data == null || data.length == 0) {
-      return ;
+    if (data != null && data.length != 0) {
+      T[] temp = (T[])new Comparable[data.length];
+      mergesort(data, temp, 0, data.length - 1);
     } // end if
-    
-    T[] temp = (T[]) new Comparable[data.length];
-    mergesort(data, temp, 0, data.length - 1);
   } // end sort()
   
   public static <T extends Comparable<? super T>>
@@ -41,10 +40,11 @@ public class MergeSort2 {
   
   public static <T extends Comparable<? super T>>
   void merge(T[] data, T[] temp, int leftBegin, int rightBegin, int rightEnd) {
-    int leftEnd = rightBegin - 1;
     int left = leftBegin;
+    int leftEnd = rightBegin - 1;
     int right = rightBegin;
     int i = leftBegin;
+    int count = 0;
     
     while (left <= leftEnd && right <= rightEnd) {
       if (data[left].compareTo(data[right]) < 0) {
@@ -59,12 +59,14 @@ public class MergeSort2 {
       temp[i++] = data[left++];
     } // end while
     while (right <= rightEnd) {
-      temp[i++] = data[right++];
+      temp[i++] =data[right++];
     } // end while
     
-    for (i = leftBegin; i <= rightEnd; ++i) {
-      data[i] = temp[i];
-    } // end for
+    left = leftBegin;
+    while (left <= rightEnd) {
+      data[left] = temp[left];
+      ++left;
+    } // end while
     
   } // end merge()
   

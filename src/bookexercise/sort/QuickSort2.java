@@ -19,20 +19,20 @@ public class QuickSort2 {
     }
   } // end main()
   
+
   public static <T extends Comparable<? super T>>
   void sort(T[] data) {
     if (data != null && data.length != 0) {
       quicksort(data, 0, data.length - 1);
-    }
+    } // end if
   } // end sort()
   
-  private static <T extends Comparable<? super T>>
+  public static <T extends Comparable<? super T>>
   void quicksort(T[] data, int left, int right) {
     if (left < right) {
       T mid = medium(data, left, right);
       int i = left;
       int j = right - 1;
-      
       while (i < j) {
         while (data[++i].compareTo(mid) < 0) {}
         while (data[--j].compareTo(mid) > 0) {}
@@ -40,7 +40,6 @@ public class QuickSort2 {
         if (i < j) {
           swap(data, i, j);
         } // end if
-
       } // end while
       
       swap(data, i, right - 1);
@@ -49,29 +48,30 @@ public class QuickSort2 {
     } // end if
   } // end quicksort()
   
-  private static <T extends Comparable<? super T>>
+  public static <T extends Comparable<? super T>>
   T medium(T[] data, int left, int right) {
-    int middle = (left + right) / 2;
-    if (data[left].compareTo(data[middle]) > 0) {
-      swap(data, left, middle);
+    int mid = (left + right) / 2;
+    if (data[left].compareTo(data[mid]) > 0) {
+      swap(data, left, mid);
     } // end if
     if (data[left].compareTo(data[right]) > 0) {
       swap(data, left, right);
     } // end if
-    if (data[middle].compareTo(data[right]) > 0) {
-      swap(data, middle, right);
+    if (data[mid].compareTo(data[right]) > 0) {
+      swap(data, mid, right);
     } // end if
     
-    swap(data, middle, right - 1);
+    swap(data, mid, right - 1);
     return data[right - 1];
   } // end medium()
   
-  private static <T>
+  public static <T>
   void swap(T[] data, int i, int j) {
     T temp = data[i];
     data[i] = data[j];
     data[j] = temp;
   } // end swap()
+  
 
   
 } // end class QuickSort
